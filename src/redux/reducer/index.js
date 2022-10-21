@@ -5,7 +5,7 @@ const initialState = {
 export default function rootReducer(state = initialState, { type, payload }) {
   switch (type) {
     case "GET_ALL_POKEMONS":
-      console.log("reducer", state);
+      // console.log("reducer", state);
       return {
         ...state,
         pokemons: payload,

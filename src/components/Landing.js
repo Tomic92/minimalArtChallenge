@@ -2,7 +2,7 @@ import { Button } from "./Button";
 import "./../styles/app.css";
 import { useDispatch } from "react-redux";
 import { getAllPokemons } from "../redux/actions";
-import { Link } from "react-router-dom";
+import "./../styles/loading.css";
 
 function Landing() {
   const dispatch = useDispatch();
@@ -12,12 +12,12 @@ function Landing() {
       <div className="container">
         <div className="row min-vh-100">
           <div className="col-6 m-auto">
-            <Link to={"/pokedex"}>
               <Button
-                onClick={() => dispatch(getAllPokemons())}
+                onClick={() => setTimeout(() => {
+                  dispatch(getAllPokemons());
+                }, 1500)}
                 children={"Traer Lista"}
               />
-            </Link>
           </div>
         </div>
       </div>

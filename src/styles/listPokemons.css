@@ -1,0 +1,13 @@
+.container1 {
+  width: 50%;
+  overflow: auto;
+  height: 500px;  
+}
+
+#demo {
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+  display: block;
+  margin: 50px auto 0;
+  padding: 10px;
+  }
