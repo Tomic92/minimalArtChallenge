@@ -5,6 +5,7 @@ export default function Pagination({
   pokemonsLength,
   setCurrentPage,
   currentPage,
+  scrollTop,
 }) {
   const pageNumbers = [];
   const totalPages = Math.ceil(pokemonsLength / pokemonsPerPage);
@@ -20,25 +21,33 @@ export default function Pagination({
             type="button"
             className="page-link"
             onClick={() =>
-              setCurrentPage(currentPage === 1 ? currentPage : currentPage - 1)
+              setCurrentPage(
+                currentPage === 1 ? currentPage : currentPage - 1
+              ) + scrollTop()
             }
           >
             {"<"}
           </button>
-          
-          {pageNumbers?.map(n=>(
+
+          {pageNumbers?.map((n) => (
             <button key={n} className="page-item">
-              <a href={"#!"} className="page-link" onClick={()=>setCurrentPage(n)}>
+              <a
+                href={"#!"}
+                className="page-link"
+                onClick={() => setCurrentPage(n) + scrollTop()}
+              >
                 {n}
               </a>
             </button>
           ))}
-          
+
           <button
             type="button"
             className="page-link"
             onClick={() =>
-              setCurrentPage(currentPage === totalPages ? currentPage : currentPage + 1)
+              setCurrentPage(
+                currentPage === totalPages ? currentPage : currentPage + 1
+              ) + scrollTop()
             }
           >
             {">"}

@@ -1,10 +1,10 @@
-.container1 {
+.pokeContainer {
   width: 50%;
   overflow: auto;
   height: 500px;  
 }
 
-#demo {
+#pokeId {
   -webkit-box-shadow: 5px 5px 15px 5px #000000; 
   box-shadow: 5px 5px 15px 5px #000000;
   display: block;

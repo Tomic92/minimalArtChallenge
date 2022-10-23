@@ -8,7 +8,7 @@ import Pagination from "./Pagination";
 
 export default function ListPokemons() {
   const pokemons = useSelector((state) => state.pokemons);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const pokemonsPerPage = 150;
@@ -17,12 +17,16 @@ export default function ListPokemons() {
   const indexFirstPokemon = indexLastPokemon - pokemonsPerPage;
   const currentPokemons = pokemons.slice(indexFirstPokemon, indexLastPokemon);
 
+  let pokeDiv = document.getElementById("pokeId");
+  function scrollTop() {
+    pokeDiv.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   useEffect(() => {
     setTimeout(() => {
-      dispatch(getAllPokemons())
+      dispatch(getAllPokemons());
     }, 2000);
-    window.scrollTo({ top: 0 });
-  }, [currentPokemons,dispatch]);
+  }, [currentPokemons, dispatch]);
 
   // console.log(pokemons.length, "list");
   return (
@@ -35,7 +39,7 @@ export default function ListPokemons() {
           <Loading /* setLoading={setLoading} */ />
         ) : (
           <div>
-            <div className="container1" id="demo">
+            <div className="pokeContainer" id="pokeId">
               <ul>
                 {pokemons ? (
                   currentPokemons.map((p) => {
@@ -46,12 +50,13 @@ export default function ListPokemons() {
                 )}
               </ul>
             </div>
-            <br/>
+            <br />
             <Pagination
               pokemonsPerPage={pokemonsPerPage}
               pokemonsLength={pokemons.length}
               setCurrentPage={setCurrentPage}
               currentPage={currentPage}
+              scrollTop={scrollTop}
             />
           </div>
         )
