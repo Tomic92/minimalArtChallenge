@@ -40,10 +40,10 @@ export default function ListPokemons() {
         ) : (
           <div>
             <div className="pokeContainer" id="pokeId">
-              <ul>
+              <ul className="list-group list-group-flush">
                 {pokemons ? (
                   currentPokemons.map((p) => {
-                    return <li key={p}>{p}</li>;
+                    return <li key={p} className="list-group-item">{p}</li>;
                   })
                 ) : (
                   <h1>Lost Connection to the Pokedatabase</h1>
